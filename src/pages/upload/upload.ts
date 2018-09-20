@@ -69,7 +69,7 @@ export class UploadPage {
 
             this.artistName=obj.artistName;
          
-            
+            //yes i did change
 
             console.log(this.artistName);
            console.log(obj);
