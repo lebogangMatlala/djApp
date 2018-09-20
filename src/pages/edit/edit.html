@@ -1,0 +1,77 @@
+<ion-content>
+    <!-- creating the form  
+  giving the form a template variable of f-->
+    <form #f="ngForm" (ngSubmit)="submit(f)">
+        <div class="contentflex">
+            <div class="contentflex__iconcontainer">
+                    <div class="contentflex__iconcontainer__heading">
+                            <h1 class="contentflex__iconcontainer__heading--headingtext">Edit Profile</h1>
+                        </div>
+                <!-- <img src="../../assets/imgs/sound-wavesdard.png" alt="" class="contentflex__iconcontainer__icon"> -->
+                <img [src]="pic" *ngIf="url != null" width="150" height="150" style="border:1px solid whitesmoke;border-radius: 50%;"  alt="" class="contentflex__iconcontainer__icon">
+                <!-- <input type="file" #image accept="image/png, image/jpeg" (change)="insertImage($event)"> -->
+                <div class="upload-btn-wrapper">
+                    <button class="btn">Upload a file</button>
+                    <input type="file" #image accept="image/png, image/jpeg" (change)="insertImage($event)"/>
+                    
+                  </div>
+             
+            </div>
+            <div class="contentflex__formcontent">
+                <ion-item no-lines>
+                    <ion-label color="light">
+                        <ion-icon name="contact"></ion-icon>
+                    </ion-label>
+                    <ion-input type="name" name="fullname" [value]="fullname" placeholder="Full Name" class="contentflex__formcontent--input" id="input" ngModel required></ion-input>
+                </ion-item>
+
+                <ion-item no-lines>
+                    <ion-label color="light">
+                        <ion-icon name="mail"></ion-icon>
+                    </ion-label>
+                    <ion-input type="name" name="email" [value]="email" placeholder="Email" class="contentflex__formcontent--input" id="input" ngModel required></ion-input>
+                </ion-item>
+                <ion-item no-lines>
+                    <ion-label color="light">
+                        <ion-icon name="contact"></ion-icon>
+                    </ion-label>
+                    <ion-input type="name" name="stagename" [value]="stagename" placeholder="Stage Name" class="contentflex__formcontent--input" id="input" ngModel required></ion-input>
+                </ion-item>
+
+                <ion-item no-lines>
+                    <ion-label color="light" >
+                        <ion-icon name="contact" ></ion-icon>
+                    </ion-label>
+                    
+                    <ion-select name="genre" [(ngModel)]="genre"  multiple="true" cancelText="Nah" okText="Okay!">
+                      <ion-option value="House"  (change)="input($event)">House</ion-option>
+                      <ion-option value="Hip pop">Hip pop</ion-option>
+                      <ion-option value="Rap">Rap</ion-option>
+                      <ion-option value="Commercial house">Commercial house</ion-option>
+                      <ion-option value="RnB">R`nB</ion-option>
+                      <ion-option value="Deep House">Deep House</ion-option>
+                      <ion-option value="Kwaito">Kwaito</ion-option>
+                      <ion-option value="Afro Pop">Afro Pop</ion-option>
+                      <ion-option value="Soul">Soul</ion-option>
+                      <ion-option value="General">General</ion-option>
+                    </ion-select>
+                  </ion-item>
+
+                <ion-item no-lines>
+                    <ion-label color="light">
+                        <ion-icon name="contact"></ion-icon>
+                    </ion-label>
+                    <ion-textarea type="name" name="bio" placeholder="Bio" [value]="bio" class="contentflex__formcontent--input" id="input" ngModel required></ion-textarea>
+                </ion-item>
+            </div>
+            <div class="contentflex__buttoncontent">
+                <!-- creating the submission button for the form 
+        -[disabled]="!f.valid" will make the button not work unless valid data is entered
+        -type="submit" triggers the ngsubmit method-->
+                <button class="contentflex__buttoncontent--button" type="submit" ion-button block [disabled]="!f.valid">Save</button>
+
+            </div>
+        </div>
+    </form>
+
+</ion-content>

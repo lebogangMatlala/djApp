@@ -1,0 +1,108 @@
+page-profile {
+
+    ion-content{
+        background: linear-gradient(rgba($color-dark, .9), rgba($color-dark, .8)),url('../../assets/imgs/7.jpg');
+        background-size: cover;
+        color: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        animation: 1s ease fadeIn;
+    }
+
+    .hero{
+        opacity: .98;
+        position: fixed;
+        z-index: 9999;
+        width: 100vw;
+        background: linear-gradient(rgba($color-dark, .6), rgba($color-dark, .6)),url('../../assets/imgs/decks.jpg');
+        background-size: cover;
+        background-position: bottom !important;
+        &__herobanner{
+            height: 25vh;
+            display: flex;
+            justify-content: space-evenly;
+            flex-flow: row nowrap;
+            &__heroimagecontainer{
+                margin: .5rem;
+                flex: 0 0 auto;
+                display: flex;
+                align-items: center;
+                &--image{
+                    width: 10rem;
+                    height: 10rem;
+                    border-radius: 50%;
+                }
+            }
+
+            &__herotagcontainer{
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: center;
+                &__headingcontainer{
+                    padding-left: 1rem; 
+                    &--heading{
+                        font-weight: 300;
+                        text-transform: uppercase;
+                        letter-spacing: .2rem;
+                    }
+                }
+            }
+
+            &__herobuttoncontainer{
+                display: flex;
+                height: 25vh;
+                flex-direction: column;
+                justify-content: flex-end;
+                &--button{
+                    animation: pulseate 1s ease infinite;
+                    font-size: 1rem;
+                } 
+            }
+        }
+    }
+
+    .item-ios, .item-md{
+        background: transparent;
+        border: none !important;
+        color: $color-primary-light !important;
+    }
+
+    ion-list{
+        position: absolute;
+        top: 25vh;
+    }
+
+    .musicplayer{
+        z-index: 9999;
+        position: fixed;
+        bottom: 0vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        width: 100vw;
+        background: linear-gradient(rgba($color-dark, .5), rgba($color-dark, .5)),url('../../assets/imgs/dj2.jpg');
+        background-size: cover;
+        height:15vh;
+        &__songtitle{
+            height: 4vh;
+            padding: 0;
+            width: 100%;
+            overflow: scroll;
+            &__scrollingtext{
+                margin: 0;
+                font-size: 2.5rem;
+                text-transform: uppercase;
+                text-align: center;
+                color: white;
+                font-weight: 300;
+                margin-bottom: 2rem;
+                animation-direction: reverse;
+                animation: scrollUp 10s ease infinite;
+            }
+            .audioplayer{
+                
+            }
+        }
+    }
+}

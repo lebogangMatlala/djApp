@@ -1,0 +1,64 @@
+page-start {
+  ion-content{
+    background: linear-gradient(rgba($color-dark, .7), rgba($color-dark, .7)),url('../../assets/imgs/7.jpg') !important;
+    background-size: cover !important;
+  }
+
+  .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    &__iconcontainer{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      &__icon{
+        width: 50%;
+        margin: 0 auto;
+        display: block;
+        margin-top: 1rem;
+      }
+      &__heading{
+        color: white;
+        text-align: center;
+        &--headingtext{
+          text-transform: uppercase;
+          font-size: 7rem;
+          font-weight: 300;
+          &--eight{
+            font-size: 6rem;
+            font-weight: 500;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba($color-primary-light, .8), rgba($color-primary-dark, .5));
+            -webkit-background-clip: text;
+            color: transparent;
+          }
+        }
+      }
+    }
+    &__buttonscontainer{
+      width: 80vw;
+      &__button:not(:first-child){
+        margin-top: 1rem;
+      }
+      &__button{
+        background: linear-gradient(rgba($color-primary-dark, .5), rgba($color-primary-light, .8));
+        border-radius: 10rem;
+        color: $color-grey-light;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        letter-spacing: .3rem;
+        font-weight: 400;
+        animation: infinite 1s pulseate;
+      }
+
+      &__button:nth-child(even){
+        animation-delay: .5s;
+      }
+    }
+  }
+}

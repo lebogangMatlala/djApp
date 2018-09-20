@@ -1,0 +1,24 @@
+<ion-content padding>
+  <div class="headerflex">
+    <h3 class="headerflex--heading"> What role are you?</h3>
+    <h3 class="headerflex--heading" *ngIf="role"> {{role}}</h3>
+
+  </div>
+
+  <div class="contentflex">
+    <div class="contentflex__cardcontainer" (click)="checkRole('Dj')">
+      <div class="contentflex__cardcontainer__headingcontainer h1">
+        <h1 class="contentflex__cardcontainer__headingcontainer--heading">Dj</h1>
+        <img class="contentflex__cardcontainer__headingcontainer--image" src="../../assets/imgs/dj.svg" width="25%">
+      </div>
+    </div>
+
+    <div class="contentflex__cardcontainer" (click)="checkRole('Audience')">
+      <div class="contentflex__cardcontainer__headingcontainer h1">
+        <h1 class="contentflex__cardcontainer__headingcontainer--heading">Audience</h1>
+        <img class="contentflex__cardcontainer__headingcontainer--image" src="../../assets/imgs/group (1).svg" width="25%">
+      </div>
+    </div>
+  </div>
+  <button ion-button block class="button" [disabled]="!role" (click)="nextPage()">Proceed</button>
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-content>
+    <!-- creating the form  
+  giving the form a template variable of f-->
+
+    <div class="contentflex">
+        <form #f="ngForm" (ngSubmit)="login(f)">
+            <div class="contentflex__iconcontainer">
+                <img src="../../assets/imgs/sound-wavesdard.png" class="contentflex__iconcontainer__icon">
+                <div class="contentflex__iconcontainer__heading">
+                    <h1 class="contentflex__iconcontainer__heading--headingtext">Sign In</h1>
+                </div>
+            </div>
+            <div class="contentflex__formcontent">
+                <ion-item no-lines>
+                    <ion-label color="light">
+                        <ion-icon name="mail"></ion-icon>
+                    </ion-label>
+                    <ion-input type="email" class="contentflex__formcontent--input" placeholder="Email Address" name="email" id="input" ngModel
+                        required></ion-input>
+                </ion-item>
+
+                <ion-item no-lines>
+                    <ion-label color="light">
+                        <ion-icon name="lock"></ion-icon>
+                    </ion-label>
+                    <ion-input type="password" class="contentflex__formcontent--input" placeholder="Password" name="password" pattern=".{6,10}"
+                        id="input" ngModel required></ion-input>
+                </ion-item>
+            </div>
+
+            <div class="contentflex__buttoncontent">
+
+                <!-- creating the submission button for the form 
+                    -[disabled]="!f.valid" will make the button not work unless valid data is entered
+                    -type="submit" triggers the ngsubmit method-->
+                <button class="contentflex__buttoncontent--button" type="submit" ion-button block [disabled]="!f.valid">Sign
+                    In</button>
+                    <button class="contentflex__buttoncontent--button1" (click)="signup()">New Account? Sign Up</button>
+            <button class="contentflex__buttoncontent--button2">Forgot Password</button>
+            </div>
+        </form>
+
+    </div>
+
+</ion-content>

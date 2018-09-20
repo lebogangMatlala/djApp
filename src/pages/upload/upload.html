@@ -1,0 +1,46 @@
+<ion-content padding>
+  <!-- creating the form  
+  giving the form a template variable of f-->
+  <form #f="ngForm" (ngSubmit)="saveArtist(f)">
+    <div class="contentflex">
+      <div class="contentflex__iconcontainer">
+        <img src="../../assets/imgs/sound-wavesdard.png" alt="" class="contentflex__iconcontainer__icon">
+        <div class="contentflex__iconcontainer__heading">
+          <h1 class="contentflex__iconcontainer__heading--headingtext">Upload Track
+          </h1>
+        </div>
+      </div>
+      <div class="contentflex__formcontent">
+        <ion-item no-lines>
+          <ion-label color="light">
+            <ion-icon name="contact"></ion-icon>
+          </ion-label>
+          <ion-input type="text" class="contentflex__formcontent--input" [value]='artistName' placeholder="Artist/s" name="artistName" id="input" ngModel
+            required></ion-input>
+        </ion-item>
+
+        <ion-item no-lines>
+          <ion-label color="light">
+            <ion-icon name="contact"></ion-icon>
+          </ion-label>
+          <ion-input type="text" name="trackName" placeholder="Track Name" class="contentflex__formcontent--input" id="input" ngModel
+            required></ion-input>
+        </ion-item>
+
+        <div class="upload-btn-wrapper">
+          <button class="btn">Upload a file</button>
+          <input type="file" (change)="upload($event)" accept="audio/mp3, audio/wav, audio/ogg"/>
+          <p style="color: white" *ngIf="filename != null">{{filename}}</p>
+        </div>
+
+        
+
+      </div>
+      <div class="contentflex__buttoncontent">
+        <button class="contentflex__buttoncontent--button" type="submit" ion-button block [disabled]="!f.valid">Upload</button>
+      </div>
+    
+    </div>
+  </form>
+
+</ion-content>

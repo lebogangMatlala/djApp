@@ -1,0 +1,49 @@
+page-splash {
+     ion-content{
+          background: linear-gradient(rgba($color-dark, .7), rgba($color-dark, .7)),url('../../assets/imgs/7.jpg') !important;
+          background-size: cover !important;
+          background-position: center !important;
+          color: white !important;
+          font-size: 62.5% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+     }
+
+     .contentflex{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          &__content{
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               &__icon{
+                    width: 50%;
+                    height: 50%;
+                    animation: pulse .5s infinite;
+               }
+               &__heading{
+                    text-align: center;
+                    &--headingtext{
+                         font-size: 7rem;
+                         font-weight: 300;
+                         letter-spacing: .3rem;
+                         text-transform: uppercase;
+                         &--eight{
+                              background: linear-gradient(rgba($color-primary-light, .8), rgba($color-primary-dark, .8));
+                              -webkit-background-clip: text;
+                              color: transparent;
+                              font-weight: 500;
+                              font-size: 6rem;
+                         }
+                    }
+                    &--quote{
+                         font-size: 2rem;
+                         font-weight: 400;
+                         text-transform: capitalize;
+                    }
+               }
+          }
+     }
+}
