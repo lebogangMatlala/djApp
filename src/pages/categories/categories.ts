@@ -29,7 +29,6 @@ export class CategoriesPage {
   pic;
   globalarr = [];
   picarray = [];
-<<<<<<< HEAD
   profilearray=[]
 
 
@@ -38,10 +37,6 @@ export class CategoriesPage {
 
   categoriesArr = ['Deep House', 'Kwaito', 'Afro-Pop', 'Dance Music', 'Commercial House', 'Kasi Rap', 'R&B', 'Commercial Hip Hop', 'Underground Hip Hop', 'Soul', 'Jazz', 'Neo Soul', 'Fusion']
 
-=======
-  profilearray = []
-  categoriesArr;
->>>>>>> a421c6a046de3049c70f9ae137b2ecc7fc4e1f2b
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: DatabaseProvider) {
     this.categoriesArr = this.db.categories();
     let userID;
@@ -52,19 +47,11 @@ export class CategoriesPage {
       // console.log( infor);
       let keys = Object.keys(infor);
 
-<<<<<<< HEAD
        for (var i = 0; i < keys.length; i++) {
        var k = keys[i];
         this.obj = {
             url: infor[k].url,
             key: k 
-=======
-      for (var i = 0; i < keys.length; i++) {
-        var k = keys[i];
-        this.obj = {
-          url: infor[k].url,
-          key: k
->>>>>>> a421c6a046de3049c70f9ae137b2ecc7fc4e1f2b
         }
 
         this.globalPic[i] = infor[k].url
@@ -87,7 +74,6 @@ export class CategoriesPage {
 
       console.log(key);
 
-<<<<<<< HEAD
     this.arrDj=[];
     for(var i = 0; i <key.length; i++)
     {
@@ -124,25 +110,6 @@ export class CategoriesPage {
     console.log(this.arrDj)
   
        
-=======
-      for (var i = 0; i < key.length; i++) {
-        let k = key[i];
-
-        let role = profile[k].Role;
-        console.log(role);
-
-        if (role == "Dj") {
-
-          console.log("dj" + k)
-        }
-        else {
-          console.log("audience" + k)
-        }
-
-
-      }
-
->>>>>>> a421c6a046de3049c70f9ae137b2ecc7fc4e1f2b
 
 
       //////
@@ -228,7 +195,7 @@ export class CategoriesPage {
       if (user) {
         console.log("User has sign in");
         //this.navCtrl.setRoot('ProfilePage',{objs:i});
-        console.log(this.globalarr[i]);
+        console.log(this.arrDj[i]);
       } else {
         console.log("User has not sign in");
       }
