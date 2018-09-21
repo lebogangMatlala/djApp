@@ -7,44 +7,57 @@ page-user-profile {
         margin: 0 !important;
         padding: 0 !important;
         animation: 1s ease fadeIn;
-       &__wrapper{
 
-       
-        &__profile{
-            background: url('../../assets/imgs/7.jpg');
-            height: 10rem;
-            text-align: center;
-            margin-left: -1.6rem;
-            margin-right: -1.6rem;
-            margin-top: -4.5rem;
-                &--username{
-                    margin-left: 8rem;
-                    margin-top: 4rem;
-                    position: relative;
-                    top: 50%;
-                    &__name{
-                        margin-top: 5rem;
-                    }            
+        .hero{
+            opacity: .98;
+            position: fixed;
+            z-index: 9999;
+            width: 100vw;
+            background: linear-gradient(rgba($color-dark, .6), rgba($color-dark, .6)),url('../../assets/imgs/decks.jpg');
+            background-size: cover;
+            background-position: bottom !important;
+            &__herobanner{
+                height: 25vh;
+                display: flex;
+                justify-content: space-evenly;
+                flex-flow: row nowrap;
+                &__heroimagecontainer{
+                    margin: .5rem;
+                    flex: 0 0 auto;
+                    display: flex;
+                    align-items: center;
+                    &--image{
+                        width: 10rem;
+                        height: 10rem;
+                        border-radius: 50%;
+                    }
                 }
-
-            &__proPic{
-                
-                    .img{
-                        margin-left: -22rem;
-                        height: 25%;
-                        width: 25%;
-                        border-radius: 100%;
+    
+                &__herotagcontainer{
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: center;
+                    &__headingcontainer{
+                        padding-left: 1rem; 
+                        &--heading{
+                            font-weight: 300;
+                            text-transform: uppercase;
+                            letter-spacing: .2rem;
+                        }
+                    }
                 }
-           }
-              
-              .camera{
-                  margin-top: -8px;
-                  margin-left: -1rem;
-                  background: black;
-              }
-          }
-    }
-
-}  
-
+    
+                &__herobuttoncontainer{
+                    display: flex;
+                    height: 25vh;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    &--button{
+                        animation: pulseate 1s ease infinite;
+                        font-size: 1rem;
+                    } 
+                }
+            }
+        }
+}
 }
