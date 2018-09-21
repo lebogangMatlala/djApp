@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ActionSheetController } from 'ionic-angular';
 
 /**
  * Generated class for the UserProfilePage page.
@@ -15,11 +16,37 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class UserProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public actionSheetCtrl: ActionSheetController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserProfilePage');
   }
 
+ edit()
+  {
+
+    const actionSheet = this.actionSheetCtrl.create({
+      title: 'Modify your Profile',
+      buttons: [
+        {
+          text: 'Edit Profile',
+          role: 'Edit Profile',
+          handler: () => {
+            console.log('Edit Profile clicked');
+          }
+        },{
+          
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
 }
