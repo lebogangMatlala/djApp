@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DatabaseProvider } from '../../providers/database/database';
 
 /**
  * Generated class for the CategoriesPage page.
@@ -14,13 +15,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'categories.html',
 })
 export class CategoriesPage {
-  categoriesArr = ['Deep House', 'Kwaito', 'Afro-Pop', 'Dance Music', 'Commercial House', 'Kasi Rap', 'R&B', 'Commercial Hip Hop', 'Underground Hip Hop', 'Soul', 'Jazz', 'Neo Soul', 'Fusion']
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  categoriesArr;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private db: DatabaseProvider) {
+    this.categoriesArr = this.db.categories();
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoriesPage');
-  }
-
-
 }
