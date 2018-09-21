@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DatabaseProvider } from '../../providers/database/database';
 import firebase from 'firebase';
@@ -30,10 +30,7 @@ role;
   globalarr=[];
   picarray = [];
   profilearray=[]
-
-
-  categoriesArr = ['Deep House', 'Kwaito', 'Afro-Pop', 'Dance Music', 'Commercial House', 'Kasi Rap', 'R&B', 'Commercial Hip Hop', 'Underground Hip Hop', 'Soul', 'Jazz', 'Neo Soul', 'Fusion']
-
+  categoriesArr;
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: DatabaseProvider) {
     let userID;
     this.db.retriveProfilePic().on('value', (data) => {
