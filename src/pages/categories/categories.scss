@@ -2,6 +2,7 @@ page-categories {
     ion-content{
         background: linear-gradient(rgba($color-dark, .9), rgba($color-dark, .8)),url('../../assets/imgs/7.jpg') !important;
         background-size: cover !important;
+        animation: 1s ease fadeIn;
     }
     .iconblock{
         width: 100vw;
@@ -50,7 +51,7 @@ page-categories {
 
     .list{
         overflow: scroll !important;
-        height: 95vh;
+        height: 74vh;
     }
     
     .fab-md-light{
@@ -59,7 +60,7 @@ page-categories {
     }
 
     .navbar{
-        height: 8vh;
+        height: 10vh;
         display: flex;
         align-items: center;
         button{
@@ -74,13 +75,10 @@ page-categories {
             color: $color-grey-light;
             font-size: 1.5rem;
             padding-left: 2.5rem;
+            margin-top: 1rem;
             ion-input{
                 font-size: 2rem;
             }
         }
-    }
-
-    .item-input-has-focus{
-        animation: pulseate 1s ease infinite, .3s ease grow;
     }
 }
