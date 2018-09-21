@@ -1,0 +1,11 @@
+page-user-profile {
+    .bigWrapper{
+        background: linear-gradient(rgba($color-dark, .9), rgba($color-dark, .8)),url('../../assets/imgs/7.jpg');
+        background-size: cover;
+        color: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        animation: 1s ease fadeIn;
+    }
+
+}
