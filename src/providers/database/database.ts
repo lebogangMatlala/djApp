@@ -78,9 +78,43 @@ export class DatabaseProvider {
 
   }
 
-
    saveArtists(userID,obj)
    {
      return  firebase.database().ref('artists/' +userID).push(obj);
+   }
+   
+
+   categories(){
+
+    return [
+      {
+        genre: 'Deep House',
+        picture: '../../assets/imgs/deep house.jpg'
+      },
+      {
+        genre: 'Commercial House',
+        picture: '../../assets/imgs/commercial.jpg'
+      },
+      {
+        genre: 'Hip Hop',
+        picture: '../../assets/imgs/hip hop.jpeg'
+      },
+      {
+        genre: 'Kwaito',
+        picture: '../../assets/imgs/kwaito.jpg'
+      },
+      {
+        genre: 'R&B',
+        picture: '../../assets/imgs/rnb.jpg'
+      },
+      {
+        genre: 'Soul Music',
+        picture: '../../assets/imgs/soul.jpg'
+      },
+      {
+        genre: 'Various',
+        picture: '../../assets/imgs/various.jpg'
+      }
+    ]
    }
 }

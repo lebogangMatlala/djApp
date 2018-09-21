@@ -11,8 +11,8 @@
   <div class="iconblock">
     <div class="iconblock__iconcontainer" *ngFor="let category of categoriesArr">
       <div class="iconblock__iconcontainer__icon">
-        <img src="../../assets/imgs/dj.jpg" alt="" class="iconblock__iconcontainer__icon--image">
-        <p class="iconblock__iconcontainer__icon--text">{{category| slice:0:10}}</p>
+        <img src="{{category.picture}}" alt="" class="iconblock__iconcontainer__icon--image">
+        <p class="iconblock__iconcontainer__icon--text">{{category.genre| slice:0:10}}</p>
       </div>
     </div>
   </div>
