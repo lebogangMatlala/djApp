@@ -2,7 +2,7 @@
   <div class="navbar">
     <ion-item no-lines class="navbarinput">
       <ion-label color="light">
-        <ion-icon name="mail"></ion-icon>
+        <ion-icon name="search"></ion-icon>
       </ion-label>
       <ion-input type="text" class="navbar--input" placeholder="Search" name="email" id="input" ngModel
         required></ion-input>
@@ -11,8 +11,8 @@
   <div class="iconblock">
     <div class="iconblock__iconcontainer" *ngFor="let category of categoriesArr">
       <div class="iconblock__iconcontainer__icon">
-        <img src="../../assets/imgs/dj.jpg" alt="" class="iconblock__iconcontainer__icon--image">
-        <p class="iconblock__iconcontainer__icon--text">{{category| slice:0:10}}</p>
+        <img src="{{category.picture}}" alt="" class="iconblock__iconcontainer__icon--image">
+        <p class="iconblock__iconcontainer__icon--text">{{category.genre| slice:0:10}}</p>
       </div>
     </div>
   </div>
@@ -27,86 +27,17 @@
 
   <div class="list">
     <ion-list>
-      <ion-item>
+      <ion-item *ngFor="let x of  globalarr;let i = index" (click)="view(i)">
         <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
+          <img src='{{x.pic}}'>
         </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
+        <h2 class='card-heading' >{{x.name}}</h2>
         <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
 
         </p>
         <button ion-button clear item-end>View</button>
       </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
+    
     </ion-list>
   </div>
 </ion-content>

@@ -46,6 +46,9 @@ page-categories {
     }
 
     ion-item{
+        &:nth-child(even){
+            background: rgba($color-grey-light, .1) !important;    
+        }
         background: transparent !important;
     }
 
