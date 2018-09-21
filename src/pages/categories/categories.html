@@ -27,86 +27,17 @@
 
   <div class="list">
     <ion-list>
-      <ion-item>
+      <ion-item *ngFor="let x of  globalarr;let i = index" (click)="view(i)">
         <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
+          <img src='{{x.pic}}'>
         </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
+        <h2 class='card-heading' >{{x.name}}</h2>
         <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
 
         </p>
         <button ion-button clear item-end>View</button>
       </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
+    
     </ion-list>
   </div>
 </ion-content>

@@ -20,7 +20,15 @@ export class DatabaseProvider {
   }
 
 
+retriveProfilePic(){
+  return firebase.database().ref('Pic/');
+}  
+retrieveProfile(){
 
+  return firebase.database().ref('Registration/');
+
+
+}
 
   update(userID,obj)
   {
