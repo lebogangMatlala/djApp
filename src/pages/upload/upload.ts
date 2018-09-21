@@ -145,7 +145,7 @@ export class UploadPage {
               var userID = firebase.auth().currentUser.uid;
             
               firebase.database().ref('track/' + userID).push({
-                url: downloadURL
+                url: downloadURL,
               });
  
               console.log(userID);
@@ -178,5 +178,10 @@ export class UploadPage {
       }, 10000);
      
       
+  }
+
+  click(i)
+  {
+    alert(i);
   }
 }
