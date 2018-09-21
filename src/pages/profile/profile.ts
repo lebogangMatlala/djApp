@@ -23,9 +23,11 @@ export class ProfilePage {
   track;
   massage;
   trackarray =[];
+  arrayP =[];
 
 
   artistName;
+  
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController) {
   }
@@ -68,42 +70,7 @@ export class ProfilePage {
             firebase.database().ref('track/' + userID).on('value', (data) => {
               var infor = data.val();
 
-              //artist
-
-              // firebase.database().ref('artists/' + userID).on('value', (data)=>{
-              //   var inforArt = data.val();
-
-              //   if( inforArt!=null && inforArt!="")
-              //   {
-              //     var keys: any = Object.keys(inforArt);
-
-              //     console.log(inforArt);
-                
-              //     this.trackarray=[];
-              //     for (var i = 0; i < keys.length; i++) {
-              //       var k = keys[i];
-            
-
-              //     let objart = {
-              //       artistName: infor[k].artistName,
-              //       trackName: infor[k].trackName,
-                      
-                  
-              //       key: k 
-                    
-              //     }
-       
-              
-              //     this.artistName=objart.artistName;
-              //       this.trackarray.push(objart);
-
-              //       console.log(this.trackarray);
-              //     }
-              //   }
-              //   else{
-              //     this.massage="no data"
-              //   }
-              // });
+             
            //////////
                 if( infor!=null && infor!="")
                 {
@@ -114,7 +81,7 @@ export class ProfilePage {
 
                       console.log(infor);
                     
-                      this.trackarray=[];
+                      this.arrayP=[];
                       for (var i = 0; i < keys.length; i++) {
                         var k = keys[i];
                 
@@ -124,9 +91,9 @@ export class ProfilePage {
                           key: k 
                         
                       }
-                        this.trackarray.push(objtrack);
+                        this.arrayP.push(objtrack);
 
-                        console.log(this.trackarray);
+                        console.log(this.arrayP);
                       }
                 }
                 else{
@@ -140,8 +107,41 @@ export class ProfilePage {
               console.log(error.message);
             });
 
+             //artist
 
+              firebase.database().ref('artists/' + userID).on('value', (data)=>{
+                var inforArt = data.val();
 
+                if( inforArt!=null && inforArt!="")
+                {
+                  var keys: any = Object.keys(inforArt);
+
+                  console.log(inforArt);
+                
+                  this.trackarray=[];
+                  for (var i = 0; i < keys.length; i++) {
+                    var k = keys[i];
+            
+
+                  let objart = {
+                    artistName: inforArt[k].artistName,
+                    trackName: inforArt[k].trackName,
+                      
+                  
+                    key: k 
+                    
+                  }
+       
+                   this.artistName=objart.artistName;
+                    this.trackarray.push(objart);
+
+                    console.log(this.trackarray);
+                  }
+                }
+                else{
+                  this.massage="no data"
+                }
+              });
 
 /////
             let obj = {
@@ -230,4 +230,8 @@ export class ProfilePage {
     actionSheet.present();
   }
 
+  click(i)
+  {
+    this.navCtrl.push('PlayerPage',{obj:i});
+  }
 }
