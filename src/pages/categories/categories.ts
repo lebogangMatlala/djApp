@@ -32,6 +32,9 @@ role;
   profilearray=[]
 
 
+  arrDj=[];
+
+
   categoriesArr = ['Deep House', 'Kwaito', 'Afro-Pop', 'Dance Music', 'Commercial House', 'Kasi Rap', 'R&B', 'Commercial Hip Hop', 'Underground Hip Hop', 'Soul', 'Jazz', 'Neo Soul', 'Fusion']
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: DatabaseProvider) {
@@ -45,10 +48,10 @@ role;
 
        for (var i = 0; i < keys.length; i++) {
        var k = keys[i];
-      this.obj = {
+        this.obj = {
             url: infor[k].url,
             key: k 
-      }
+        }
 
       this.globalPic[i] = infor[k].url
                 //  this.picarray.push(objpic);
@@ -70,23 +73,40 @@ role;
 
     console.log(key);
 
+    this.arrDj=[];
     for(var i = 0; i <key.length; i++)
     {
         let k = key[i];
       
       let role=profile[k].Role;
-      console.log(role);
+      let stagename=profile[k].stagename;
+      
+      
 
       if(role=="Dj"){
         
-        console.log("dj" +k)
+        console.log("dj " +k)
+
+        
+
+        let objDj ={
+           role:role,
+           stagename:stagename,
+           url:this.globalPic[i],
+           key:k
+        }
+        
+        this.arrDj.push(objDj);
+
       }
       else{
-        console.log("audience"+k)
+        console.log("audience "+k)
       }
 
      
     }
+
+    console.log(this.arrDj)
   
        
 

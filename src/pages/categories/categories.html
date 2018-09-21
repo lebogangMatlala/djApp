@@ -27,11 +27,11 @@
 
   <div class="list">
     <ion-list>
-      <ion-item *ngFor="let x of  globalarr;let i = index" (click)="view(i)">
+      <ion-item *ngFor="let x of  arrDj;let i = index" (click)="view(i)">
         <ion-thumbnail item-start>
-          <img src='{{x.pic}}'>
+          <img src='{{x.url}}'>
         </ion-thumbnail>
-        <h2 class='card-heading' >{{x.name}}</h2>
+        <h2 class='card-heading' >{{x.stagename}}</h2>
         <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
 
         </p>
