@@ -39,16 +39,15 @@
                 <p>dope track here...</p>
             
         </ion-item> -->
-        <ion-item no-lines *ngFor="let x of trackarray" >
+       
+        <ion-item no-lines *ngFor="let x of trackarray;let i=index;"(click)="click(i)" >
             <ion-thumbnail item-start>
                 <img src="../../assets/imgs/dj2.jpg">
             </ion-thumbnail>
-            <h2>{{fullname}}</h2>
-            <h3>{{x.url}}</h3>
-            <p>dope track here...</p>
+            <h2>{{x.artistName}}</h2>
+            <h3>{{x.trackName}}</h3>
+            <p>dope track here......</p>  
         </ion-item>
-   
-   
     </ion-list>
 </ion-content>
 <div class="musicplayer">
