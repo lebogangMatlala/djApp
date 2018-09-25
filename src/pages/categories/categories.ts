@@ -18,8 +18,6 @@ import firebase from 'firebase';
 export class CategoriesPage {
 
   obj = {
-
-
   }
   globalPic = [];
   globalDetails = [];
@@ -31,14 +29,16 @@ export class CategoriesPage {
   picarray = [];
   profilearray=[]
 
-
   arrDj=[];
+
+  searchTerm: string = '';
+  items: any;
 
 
   categoriesArr = ['Deep House', 'Kwaito', 'Afro-Pop', 'Dance Music', 'Commercial House', 'Kasi Rap', 'R&B', 'Commercial Hip Hop', 'Underground Hip Hop', 'Soul', 'Jazz', 'Neo Soul', 'Fusion'];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: DatabaseProvider) {
-    this.categoriesArr = this.db.categories();
+    this.categoriesArr= this.db.categories();
     let userID;
     this.db.retriveProfilePic().on('value', (data) => {
       var infor = data.val();
@@ -185,6 +185,7 @@ export class CategoriesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoriesPage');
+    this.setFilteredItems();
   }
 
   view(i) {
@@ -205,4 +206,9 @@ export class CategoriesPage {
 
   }
 
+//   setFilteredItems() {
+ 
+//     this.items = this.db.filterItems(this.searchTerm);
+
+// }
 }
