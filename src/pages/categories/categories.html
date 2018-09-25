@@ -26,7 +26,7 @@
   </ion-fab>
 
   <div class="list">
-    <ion-list>
+    <ion-list no-lines>
       <ion-item *ngFor="let x of  arrDj;let i = index" (click)="view(i)">
         <ion-thumbnail item-start>
           <img src='{{x.url}}'>

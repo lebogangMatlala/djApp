@@ -35,7 +35,7 @@ export class CategoriesPage {
   arrDj=[];
 
 
-  categoriesArr = ['Deep House', 'Kwaito', 'Afro-Pop', 'Dance Music', 'Commercial House', 'Kasi Rap', 'R&B', 'Commercial Hip Hop', 'Underground Hip Hop', 'Soul', 'Jazz', 'Neo Soul', 'Fusion']
+  categoriesArr = ['Deep House', 'Kwaito', 'Afro-Pop', 'Dance Music', 'Commercial House', 'Kasi Rap', 'R&B', 'Commercial Hip Hop', 'Underground Hip Hop', 'Soul', 'Jazz', 'Neo Soul', 'Fusion'];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: DatabaseProvider) {
     this.categoriesArr = this.db.categories();
