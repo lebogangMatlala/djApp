@@ -2,22 +2,22 @@
   <div class="navbar">
     <ion-item no-lines class="navbarinput">
       <ion-label color="light">
-        <ion-icon name="mail"></ion-icon>
+        <ion-icon name="search"></ion-icon>
       </ion-label>
-      <ion-input type="text" class="navbar--input" placeholder="Email Address" name="email" id="input" ngModel
+      <ion-input type="text" class="navbar--input" placeholder="Search" name="email" id="input" ngModel
         required></ion-input>
     </ion-item>
   </div>
   <div class="iconblock">
     <div class="iconblock__iconcontainer" *ngFor="let category of categoriesArr">
       <div class="iconblock__iconcontainer__icon">
-        <img src="../../assets/imgs/dj.jpg" alt="" class="iconblock__iconcontainer__icon--image">
-        <p class="iconblock__iconcontainer__icon--text">{{category| slice:0:10}}</p>
+        <img src="{{category.picture}}" alt="" class="iconblock__iconcontainer__icon--image">
+        <p class="iconblock__iconcontainer__icon--text">{{category.genre| slice:0:10}}</p>
       </div>
     </div>
   </div>
 
-  <ion-fab right top>
+  <ion-fab right bottom>
     <button ion-fab color="light"><ion-icon ios="ios-menu" md="md-menu"></ion-icon></button>
     <ion-fab-list side="left">
       <button ion-fab>  <ion-icon ios="ios-contact" md="md-contact"></ion-icon></button>
@@ -26,87 +26,18 @@
   </ion-fab>
 
   <div class="list">
-    <ion-list>
-      <ion-item>
+    <ion-list no-lines>
+      <ion-item *ngFor="let x of  arrDj;let i = index" (click)="view(i)">
         <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
+          <img src='{{x.url}}'>
         </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
+        <h2 class='card-heading' >{{x.stagename}}</h2>
         <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
 
         </p>
         <button ion-button clear item-end>View</button>
       </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="../../assets/dj.jpg">
-        </ion-thumbnail>
-        <h2 class='card-heading'>Dj Ntonton</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
-
-        </p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
+    
     </ion-list>
   </div>
 </ion-content>

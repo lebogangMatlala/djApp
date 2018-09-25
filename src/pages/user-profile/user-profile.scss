@@ -1,0 +1,63 @@
+page-user-profile {
+
+    .bigWrapper{
+        background: linear-gradient(rgba($color-dark, .9), rgba($color-dark, .8)),url('../../assets/imgs/7.jpg');
+        background-size: cover;
+        color: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        animation: 1s ease fadeIn;
+
+        .hero{
+            opacity: .98;
+            position: fixed;
+            z-index: 9999;
+            width: 100vw;
+            background: linear-gradient(rgba($color-dark, .6), rgba($color-dark, .6)),url('../../assets/imgs/decks.jpg');
+            background-size: cover;
+            background-position: bottom !important;
+            &__herobanner{
+                height: 25vh;
+                display: flex;
+                justify-content: space-evenly;
+                flex-flow: row nowrap;
+                &__heroimagecontainer{
+                    margin: .5rem;
+                    flex: 0 0 auto;
+                    display: flex;
+                    align-items: center;
+                    &--image{
+                        width: 10rem;
+                        height: 10rem;
+                        border-radius: 50%;
+                    }
+                }
+    
+                &__herotagcontainer{
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: center;
+                    &__headingcontainer{
+                        padding-left: 1rem; 
+                        &--heading{
+                            font-weight: 300;
+                            text-transform: uppercase;
+                            letter-spacing: .2rem;
+                        }
+                    }
+                }
+    
+                &__herobuttoncontainer{
+                    display: flex;
+                    height: 25vh;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    &--button{
+                        animation: pulseate 1s ease infinite;
+                        font-size: 1rem;
+                    } 
+                }
+            }
+        }
+}
+}

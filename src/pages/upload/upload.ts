@@ -70,6 +70,7 @@ export class UploadPage {
             this.artistName=obj.artistName;
          
             //yes i did change
+            //changes
 
             console.log(this.artistName);
            console.log(obj);
@@ -144,7 +145,7 @@ export class UploadPage {
               var userID = firebase.auth().currentUser.uid;
             
               firebase.database().ref('track/' + userID).push({
-                url: downloadURL
+                url: downloadURL,
               });
  
               console.log(userID);
@@ -177,5 +178,10 @@ export class UploadPage {
       }, 10000);
      
       
+  }
+
+  click(i)
+  {
+    alert(i);
   }
 }

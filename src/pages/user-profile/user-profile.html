@@ -1,0 +1,35 @@
+<!--
+  Generated template for the UserProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+</ion-header>
+
+
+<ion-content padding class="bigWrapper">
+    <div class="hero">
+        <div class="hero__herobanner">
+            <div class="hero__herobanner__heroimagecontainer">
+                <img [src]="pic" alt="" class="hero__herobanner__heroimagecontainer--image">
+            </div>
+            <div class="hero__herobanner__herotagcontainer">
+                <div class="hero__herobanner__herotagcontainer__headingcontainer">
+                    <h1 class="hero__herobanner__herotagcontainer__headingcontainer--heading">{{fullname}}</h1>
+                </div>
+                <div class="hero__herobanner__herotagcontainer__tagcontainer">
+                    <!-- <ion-badge outline class="hero__herobanner__herotagcontainer--tag">Kwaito</ion-badge>
+                    <ion-badge class="hero__herobanner__herotagcontainer--tag">Rap</ion-badge>
+                    <ion-badge class="hero__herobanner__herotagcontainer--tag">House</ion-badge> -->
+                </div>
+            </div>
+            <div class="hero__herobanner__herobuttoncontainer">
+                <button ion-button block small round class="hero__herobanner__herobuttoncontainer--button">
+                    <ion-icon name="ios-more" (click)="edit()"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</ion-content>
