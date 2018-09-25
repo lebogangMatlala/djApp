@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DatabaseProvider } from '../../providers/database/database';
 import firebase from 'firebase';
@@ -21,164 +21,143 @@ export class CategoriesPage {
 
 
   }
-  globalPic = [];
-  globalDetails = [];
-  role;
-  keysProfile: any;
-  keysPic: any;
+  globalPic =[];
+  globalDetails=[];
+role;
+  keysProfile:any;
+  keysPic:any;
   pic;
-  globalarr = [];
+  globalarr=[];
   picarray = [];
   profilearray=[]
-
-
-  arrDj=[];
+  yes;
 
 
   categoriesArr = ['Deep House', 'Kwaito', 'Afro-Pop', 'Dance Music', 'Commercial House', 'Kasi Rap', 'R&B', 'Commercial Hip Hop', 'Underground Hip Hop', 'Soul', 'Jazz', 'Neo Soul', 'Fusion'];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: DatabaseProvider) {
-    this.categoriesArr = this.db.categories();
     let userID;
     this.db.retriveProfilePic().on('value', (data) => {
       var infor = data.val();
       this.pic = infor.url;
-
+      
       // console.log( infor);
-      let keys = Object.keys(infor);
+       let keys = Object.keys(infor);
 
        for (var i = 0; i < keys.length; i++) {
        var k = keys[i];
-        this.obj = {
+      this.obj = {
             url: infor[k].url,
             key: k 
-        }
-
-        this.globalPic[i] = infor[k].url
-        //  this.picarray.push(objpic);
-        //console.log(this.globalPic);
-
       }
 
-    }, (error) => {
+      this.globalPic[i] = infor[k].url
+                //  this.picarray.push(objpic);
+                 //console.log(this.globalPic);
 
-      console.log(error.message);
+     } 
+
+      }, (error) => {
+
+        console.log(error.message);
 
 
-    });
+      });
 
 
     this.db.retrieveProfile().on("value", (data) => {
-      let profile = data.val();
-      let key = Object.keys(profile);
+       let profile = data.val();
+       let key = Object.keys(profile);
 
-      console.log(key);
+    console.log(key);
 
-    this.arrDj=[];
     for(var i = 0; i <key.length; i++)
     {
         let k = key[i];
       
       let role=profile[k].Role;
-      let stagename=profile[k].stagename;
-      
-      
+      console.log(role);
 
       if(role=="Dj"){
         
-        console.log("dj " +k)
-
-        
-
-        let objDj ={
-           role:role,
-           stagename:stagename,
-           url:this.globalPic[i],
-           key:k
-        }
-        
-        this.arrDj.push(objDj);
-
+        console.log("dj" +k)
       }
       else{
-        console.log("audience "+k)
+        console.log("audience"+k)
       }
 
      
     }
-
-    console.log(this.arrDj)
   
        
 
-
-      //////
-
+       //////
 
 
-      let profileDetails = profile.stagename
+       
+       let profileDetails = profile.stagename
       this.role = profile.Role
-      let keysProfile = Object.keys(profile.Role == "Dj");
-
-      console.log(keysProfile);
-      //console.log(profile);
-      this.profilearray = [];
-      for (var i = 0; i < keysProfile.length; i++) {
-        let k = keysProfile[i];
-        let role = profile[k].Role
-        //console.log(role);
+       let keysProfile = Object.keys(profile.Role=="Dj");
+         
+       console.log(keysProfile);
+       //console.log(profile);
+       this.profilearray =[];
+         for (var i = 0; i < keysProfile.length; i++) {
+          let k = keysProfile[i];
+          let role =profile[k].Role
+//console.log(role);
 
         //  if(role=="Dj"){
-        //console.log(profile);
-        this.obj = {
-          stagename: profile[k].stagename,
-          roles: profile[k].Role,
-          key: k
-        }
+//console.log(profile);
+this.obj = {
+  stagename:  profile[k].stagename,
+  roles : profile[k].Role,
+  key: k 
+}
 
-        //if(this.obj.roles=="Dj")
-        //{
-        console.log("dj");
-        ///}
+//if(this.obj.roles=="Dj")
+//{
+  console.log("dj");
+///}
         //  }
+      
 
 
-
-        // this.globalDetails[i] = profile[k].stagename
-        this.profilearray.push(this.obj);
-        //     console.log("details");
-
-
-
-      }
-
+  // this.globalDetails[i] = profile[k].stagename
+                     this.profilearray.push(this.obj);
+                //     console.log("details");
+                     
+                   
+ 
+        } 
 
 
+ 
+        
+        //console.log(this.globalPic);
+       // console.log(this.globalDetails);
 
-      //console.log(this.globalPic);
-      // console.log(this.globalDetails);
+     //  console.log(this.profilearray);
+    
 
-      //  console.log(this.profilearray);
-
-
-      for (let i = 0; i < this.globalDetails.length; ++i) {
-
-        let objdetails = {
-          pic: this.globalPic[i],
+       for(let i =0 ; i< this.globalDetails.length;++i){
+         
+        let objdetails ={
+          pic:this.globalPic[i],
           name: this.globalDetails[i],
           role: this.role
-
+          
         }
         this.globalarr.push(objdetails);
         ///console.log(this.globalarr);
-
+  
       }
-
+        
 
     });
 
 
-
+  
 
 
   }
@@ -187,22 +166,22 @@ export class CategoriesPage {
     console.log('ionViewDidLoad CategoriesPage');
   }
 
-  view(i) {
+view(i){
 
-    console.log(i);
+  console.log(i);
 
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        console.log("User has sign in");
-        //this.navCtrl.setRoot('ProfilePage',{objs:i});
-        console.log(this.arrDj[i]);
-      } else {
-        console.log("User has not sign in");
-      }
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      console.log("User has sign in");
+      //this.navCtrl.setRoot('ProfilePage',{objs:i});
+      console.log(this.globalarr[i]);
+    } else {
+      console.log("User has not sign in");
+    }
 
 
     });
 
-  }
+}
 
 }
