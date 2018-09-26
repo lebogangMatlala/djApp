@@ -13,19 +13,12 @@ import firebase from 'firebase';
 @Injectable()
 export class DatabaseProvider {
 
-  items: any;
+
 
 
   constructor(public http: HttpClient) {
     console.log('Hello DatabaseProvider Provider');
-    this.items = [
-      {title: 'one'},
-      {title: 'two'},
-      {title: 'three'},
-      {title: 'four'},
-      {title: 'five'},
-      {title: 'six'}
-  ]
+    
   }
 
 
@@ -132,11 +125,5 @@ retrieveProfile(){
     ];
   }
 
-  filterItems(searchTerm){
- 
-    return this.items.filter((item) => {
-        return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
-    });    
 
-}
 }

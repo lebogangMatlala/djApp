@@ -48,13 +48,12 @@ export class ProfilePage {
      
           console.log(userDetails);
     
-          var userID =firebase.auth().currentUser.uid;
+          //var userID =firebase.auth().currentUser.uid;
     
-          console.log(userID);
  
           if(userDetails!=null && userDetails!='')
           {
-            firebase.database().ref('Pic/' + userID).on('value', (data) => {
+            firebase.database().ref('Pic/' + id).on('value', (data) => {
               var infor = data.val();
               this.pic = infor.url;
               console.log("pciture"+infor);
@@ -67,7 +66,7 @@ export class ProfilePage {
             });
       
 ///track
-            firebase.database().ref('track/' + userID).on('value', (data) => {
+            firebase.database().ref('track/' + id).on('value', (data) => {
               var infor = data.val();
 
              
@@ -84,7 +83,8 @@ export class ProfilePage {
                       this.arrayP=[];
                       for (var i = 0; i < keys.length; i++) {
                         var k = keys[i];
-                
+                           
+                        
 
                       let objtrack = {
                           url: infor[k].url,
@@ -109,7 +109,7 @@ export class ProfilePage {
 
              //artist
 
-              firebase.database().ref('artists/' + userID).on('value', (data)=>{
+              firebase.database().ref('artists/' + id).on('value', (data)=>{
                 var inforArt = data.val();
 
                 if( inforArt!=null && inforArt!="")
@@ -145,7 +145,7 @@ export class ProfilePage {
 
 /////
             let obj = {
-              id:userID,
+              id:id,
               fullname: userDetails.fullname,
               email:userDetails.email,
               surname:userDetails.surname
