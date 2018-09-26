@@ -18,6 +18,7 @@ import firebase from "firebase";
 })
 export class RegisterPage implements OnInit{
   role: any;
+  registrationObj;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -42,14 +43,35 @@ export class RegisterPage implements OnInit{
     loading.present();
 
     this.db.registerUser(form.value.email, form.value.password).then(data => {
+      
+      
       let userID = firebase.auth().currentUser.uid;
-      let registrationObj = {
-        fullname: form.value.fullname,
-        password: form.value.password,
-        email: form.value.email,
-        Role:this.role
-       
-      };
+      
+      if(this.role =="Dj"){
+        this.registrationObj = {
+          fullname: form.value.fullname,
+          password: form.value.password,
+          email: form.value.email,
+          Role:this.role,
+          genre:"General"
+      
+         
+        };
+
+
+      }else{
+
+        let registrationObj = {
+          fullname: form.value.fullname,
+          password: form.value.password,
+          email: form.value.email,
+          Role:this.role,
+      
+         
+        };
+      
+      }
+    
 
       firebase
       .database()
@@ -57,7 +79,7 @@ export class RegisterPage implements OnInit{
       .set({
         url: "http://www.dealnetcapital.com/files/2014/10/blank-profile.png"
       });
-      firebase.database().ref("Registration/" + userID).set(registrationObj);
+      firebase.database().ref("Registration/" + userID).set(this.registrationObj);
       loading.dismiss();
       const alert = this.alertCtrl.create({
         title: 'Success!',
@@ -65,7 +87,14 @@ export class RegisterPage implements OnInit{
         buttons: [{
           text: 'Okay',
           handler: ()=>{
-            this.navCtrl.push('StartPage');//where we are navigating to
+            if(this.role == "Dj")
+              //where we are navigating to
+            {  this.navCtrl.push('ProfilePage');
+
+          }else{
+            this.navCtrl.push('CategoriesPage')
+          }
+        
           }
         }]
       })

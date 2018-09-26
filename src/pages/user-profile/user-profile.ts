@@ -19,6 +19,9 @@ export class UserProfilePage {
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public actionSheetCtrl: ActionSheetController) {
+
+      
+
   }
 
   ionViewDidLoad() {

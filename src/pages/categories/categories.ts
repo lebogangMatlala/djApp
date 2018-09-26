@@ -21,24 +21,28 @@ export class CategoriesPage {
   }
   globalPic =[];
   globalDetails=[];
-role;
+  role;
   keysProfile:any;
   keysPic:any;
   pic;
   globalarr=[];
   picarray = [];
   profilearray=[]
-
+  keys;
+  categoriesArr;
   arrDj=[];
   arrSt=[];
-  
-  categoriesArr;
+
+  //categoriesArr = ['Deep House', 'Kwaito', 'Afro-Pop', 'Dance Music', 'Commercial House', 'Kasi Rap', 'R&B', 'Commercial Hip Hop', 'Underground Hip Hop', 'Soul', 'Jazz', 'Neo Soul', 'Fusion'];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: DatabaseProvider) {
     this.categoriesArr= this.db.categories();
 
     let userID;
 
+    ///picture
+  this.categoriesArr = this.db.categories();
+  console.log(this.categoriesArr);
     this.db.retriveProfilePic().on('value', (data) => {
       var infor = data.val();
       this.pic = infor.url;
@@ -66,7 +70,7 @@ role;
 
       });
 
-
+///Djs details
     this.db.retrieveProfile().on("value", (data) => {
        let profile = data.val();
        let key = Object.keys(profile);
@@ -76,50 +80,40 @@ role;
     console.log(key);
 
     for(var i = 0; i <key.length; i++)
-    {
+     {
         let k = key[i];
-      
+      let stagename = profile[k].stagename
       let role=profile[k].Role;
-      let stagename= profile[k].stagename;
+      let genre = profile[k].genre;
 
-      console.log(role);
-
-      
-      
+      console.log(role + genre);
       if(role=="Dj"){
-
-        if(stagename!=null)
-        {
-          console.log("dj" +k)
-          let objDj ={
-            role:role,
-            stagename:stagename,
-            url:this.globalPic[i],
-            key:k
-         }
-         this.arrSt.push(stagename);
-         console.log("lebo")
-         console.log(this.arrSt)
-  
-         
-  
-         this.arrDj.push(objDj);
-         console.log(this.arrDj);
-        }
-        else{
-            console.log("no data")
-        }
-        
-       
+        if(genre!= null && stagename!=null){    
+           console.log("dj" + k + stagename )
+        let objDj ={
+          role:role,
+          stagename:stagename,
+          genre:genre,
+          url:this.globalPic[i],
+          key:k
       }
+      
+
+     console.log(objDj);
+    this.arrDj.push(objDj);
+  }
+  else{
+    console.log("no stage name or genre"+k)  
+  }
+     
+    }
       else{
         console.log("audience"+k)
       }
-
      
     }
   
-    });
+   });
 
   
   }
@@ -146,31 +140,80 @@ role;
     //   'Drupal 8: Programatically create Add another field - Example',  
     // ];
 
-    this.arrSt;
+    this.arrDj=this.arrDj;
     //console.log(this.arrSt);
   }
  
-  getTopics(ev: any) {
+  getItems(searchbar) {
     this.generateTopics();
-    let serVal = ev.target.value;
-    if (serVal && serVal.trim() != '') {
-      this.arrSt = this.arrSt.filter((data) => {
-       return (data.toLowerCase().indexOf(serVal.toLowerCase()) > -1);
-     })
+
+    let val = searchbar.srcElement.value;
+
+    if (!val) {
+      
+      return ;
     }
+
+    this.arrDj= this.arrDj.filter((i) => {
+      if(i.stagename && val) {
+        if (i.stagename.toLowerCase().indexOf(val.toLowerCase()) > -1) {
+          return true;
+        }
+        return false;
+      }
+      
+    });
+
+    console.log(val,this.arrDj.length);
+    
+  }
+
+  signout()
+  {
+    firebase.auth().onAuthStateChanged((user)=> {
+
+   
+      if (user) {
+        console.log("user has signed in")
+
+        firebase.auth().signOut().then(() =>{
+          // Sign-out successful.
+          alert(" Sign-out successful");
+          this.navCtrl.setRoot("CategoriesPage");
+        }).catch(function(error) {
+          // An error happened.
+          alert(error);
+        });
+
+      }else{
+
+        console.log("user has signed out")
+      }
+    });
+     
+  }
+
+  onCancel(searchbar)
+  {
+      console.log(searchbar);
   }
 
 view(i){
-
+ let keys  = this.arrDj[i].key
   console.log(i);
+  console.log("//// key")
+  console.log(keys)
 
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
       console.log("User has sign in");
-      //this.navCtrl.setRoot('ProfilePage',{objs:i});
+      this.navCtrl.setRoot('ViewProfilePage',{keyobj:keys});
       console.log(this.arrDj[i]);
+
     } else {
       console.log("User has not sign in");
+      this.navCtrl.setRoot('LoginPage');
+
     }
 
 
@@ -178,5 +221,19 @@ view(i){
 
 }
 
+page() {
+  firebase.auth().onAuthStateChanged((user)=> {
+    if (user) {
+      console.log("user has signed in");
 
+     this.navCtrl.setRoot('ProfilePage');
+
+    }else{
+    alert("user has not signed in")
+      console.log("user has signed out");
+      this.navCtrl.setRoot('LoginPage');
+    }
+  });
+   
+}
 }

@@ -14,14 +14,13 @@
                     <h1 class="hero__herobanner__herotagcontainer__headingcontainer--heading">{{fullname}}</h1>
                 </div>
                 <div class="hero__herobanner__herotagcontainer__tagcontainer">
-                    <ion-badge outline class="hero__herobanner__herotagcontainer--tag">Kwaito</ion-badge>
-                    <ion-badge class="hero__herobanner__herotagcontainer--tag">Rap</ion-badge>
-                    <ion-badge class="hero__herobanner__herotagcontainer--tag">House</ion-badge>
+                    <ion-badge *ngFor="let i of  genreArr" outline class="hero__herobanner__herotagcontainer--tag">{{i.genre}}</ion-badge>
+                   
                 </div>
             </div>
             <div class="hero__herobanner__herobuttoncontainer">
-                <button ion-button block small round class="hero__herobanner__herobuttoncontainer--button">
-                    <ion-icon name="ios-more" (click)="edit()"></ion-icon>
+                <button  ion-button block small round class="hero__herobanner__herobuttoncontainer--button">
+                    <ion-icon  name="ios-more" (click)="edit()"></ion-icon>
                 </button>
             </div>
         </div>
@@ -42,7 +41,7 @@
        
         <ion-item no-lines *ngFor="let x of trackarray;let i=index;"(click)="click(i)" >
             <ion-thumbnail item-start>
-                <img src="../../assets/imgs/dj2.jpg">
+                <img [src]="pic">
             </ion-thumbnail>
             <h2>{{x.artistName}}</h2>
             <h3>{{x.trackName}}</h3>
@@ -50,7 +49,7 @@
         </ion-item>
     </ion-list>
 </ion-content>
-<div class="musicplayer">
+<!-- <div class="musicplayer">
     <div class="musicplayer__songtitle">
         <p class="musicplayer__songtitle__scrollingtext">Master_Cheng_Fu
             <br> Umcimbi_ft_Lelo_Kamau</p>
@@ -60,7 +59,7 @@
             <source src="../../assets/Master_Cheng_Fu_-_Umcimbi_ft_Lelo_Kamau.mp3" type="audio/mpeg">
         </audio>
     </div>
-</div>
+</div> -->
 <!--trcks display 
             <ion-item class="track" *ngFor="let x of trackarray">
             <ion-thumbnail item-start>

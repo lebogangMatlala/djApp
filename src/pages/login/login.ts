@@ -58,7 +58,8 @@ export class LoginPage {
               text: "Ok",
               handler: () => {
                 console.log(data);
-                this.navCtrl.push('ProfilePage');
+                this.navCtrl.push('CategoriesPage');
+                console.log("logged in");
               }
             }
           ]

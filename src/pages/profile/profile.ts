@@ -24,39 +24,63 @@ export class ProfilePage {
   massage;
   trackarray =[];
   arrayP =[];
+  genreArr =[];
+
 
 
   artistName;
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController) {
+
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
     
+//let key = this.navParams.get("keyobj");
+
 
     firebase.auth().onAuthStateChanged((user)=> {
       if (user) {
-        console.log('User has sign in');
+        console.log('User has sign in');   
+         
         var id =firebase.auth().currentUser.uid;
+
         console.log(id);
  
-        firebase.database().ref('Registration/' +id).on('value', (data: any) => {
+        firebase.database().ref('Registration/' + id).on('value', (data: any) => {
  
-          var userDetails = data.val();
-     
-          console.log(userDetails);
-    
-          //var userID =firebase.auth().currentUser.uid;
-    
+          let userDetails = data.val();
+          let genre =userDetails.genre;
+
+          if(genre!=null){       
+
+            // console.log( userDetails.genre)
+             for (let a = 0; a < genre.length; a++){
+               let genreobj={
+                 genre:genre[a]
+               }
+          //  console.log(userDetails[a].Role)
+            this. genreArr.push(genreobj);
+               console.log(this. genreArr);}
+ 
+            
+          }else{
+            console.log("no")
+          }
+        
+
+
+
  
           if(userDetails!=null && userDetails!='')
           {
             firebase.database().ref('Pic/' + id).on('value', (data) => {
               var infor = data.val();
               this.pic = infor.url;
-              console.log("pciture"+infor);
+            //  console.log("pciture"+infor);
       
             }, (error) => {
       
@@ -73,12 +97,12 @@ export class ProfilePage {
            //////////
                 if( infor!=null && infor!="")
                 {
-                      console.log(infor);
+                   //   console.log(infor);
                       var tracks = infor.url;
 
                       var keys: any = Object.keys(infor);
 
-                      console.log(infor);
+                     // console.log(infor);
                     
                       this.arrayP=[];
                       for (var i = 0; i < keys.length; i++) {
@@ -93,7 +117,7 @@ export class ProfilePage {
                       }
                         this.arrayP.push(objtrack);
 
-                        console.log(this.arrayP);
+                       // console.log(this.arrayP);
                       }
                 }
                 else{
@@ -101,7 +125,7 @@ export class ProfilePage {
                 }
               
               
-              console.log("track" );
+              //console.log("track" );
             }, (error) => {
       
               console.log(error.message);
@@ -116,7 +140,7 @@ export class ProfilePage {
                 {
                   var keys: any = Object.keys(inforArt);
 
-                  console.log(inforArt);
+                 // console.log(inforArt);
                 
                   this.trackarray=[];
                   for (var i = 0; i < keys.length; i++) {
@@ -126,6 +150,7 @@ export class ProfilePage {
                   let objart = {
                     artistName: inforArt[k].artistName,
                     trackName: inforArt[k].trackName,
+                 
                       
                   
                     key: k 
@@ -135,7 +160,7 @@ export class ProfilePage {
                    this.artistName=objart.artistName;
                     this.trackarray.push(objart);
 
-                    console.log(this.trackarray);
+                  //  console.log(this.trackarray);
                   }
                 }
                 else{
@@ -156,7 +181,7 @@ export class ProfilePage {
             this.fullname=obj.fullname;
 
            
-           console.log(obj);
+          // console.log(obj);
           }
          
      
