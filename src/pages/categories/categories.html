@@ -20,7 +20,7 @@
   <ion-fab right bottom>
     <button ion-fab color="light"><ion-icon ios="ios-menu" md="md-menu"></ion-icon></button>
     <ion-fab-list side="left">
-      <button ion-fab>  <ion-icon ios="ios-contact" md="md-contact"></ion-icon></button>
+      <button ion-fab>  <ion-icon ios="ios-contact" md="md-contact" (click)="page()"></ion-icon></button>
       <button ion-fab>  <ion-icon ios="ios-log-out" md="md-log-out"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
@@ -32,7 +32,7 @@
           <img src='{{x.url}}'>
         </ion-thumbnail>
         <h2 class='card-heading' >{{x.stagename}}</h2>
-        <p>Hayao Miyazaki • 1988 <i class="fas fa-star"></i>
+        <p>{{x.genre}}<i class="fas fa-star"></i>
 
         </p>
         <button ion-button clear item-end>View</button>

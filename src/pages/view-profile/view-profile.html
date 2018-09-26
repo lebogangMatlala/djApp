@@ -16,9 +16,8 @@
                   <h1 class="hero__herobanner__herotagcontainer__headingcontainer--heading">{{fullname}}</h1>
               </div>
               <div class="hero__herobanner__herotagcontainer__tagcontainer">
-                  <ion-badge outline class="hero__herobanner__herotagcontainer--tag">Kwaito</ion-badge>
-                  <ion-badge class="hero__herobanner__herotagcontainer--tag">Rap</ion-badge>
-                  <ion-badge class="hero__herobanner__herotagcontainer--tag">House</ion-badge>
+                <ion-badge *ngFor="let i of  genreArr" outline class="hero__herobanner__herotagcontainer--tag">{{i.genre}}</ion-badge>
+               
               </div>
           </div>
           <div class="hero__herobanner__herobuttoncontainer">
