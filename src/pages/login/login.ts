@@ -98,6 +98,11 @@ export class LoginPage {
           text: "Cancel",
           handler: data => {
             console.log("Cancel clicked");
+            const loader = this.loadingCtrl.create({
+              content: "Please wait...",
+              duration: 5000
+            });
+            loader.present();
             this.navCtrl.setRoot('LoginPage');
           }
         },
