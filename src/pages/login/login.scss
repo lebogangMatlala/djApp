@@ -77,12 +77,15 @@ page-login {
                 -webkit-background-clip: text;
                 display: inline-block;
                 color: transparent;
+                color: white;
+                margin-right: 3em;
             }
             &--button2{
                 background: linear-gradient(rgba($color-primary-dark, .5), rgba($color-primary-light, .8));
                 -webkit-background-clip: text;
                 display: inline-block;
                 color: transparent;
+                color: $color-primary-dark;
             }
             
         }
