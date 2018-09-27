@@ -116,6 +116,12 @@ export class EditPage {
       console.log(event.target.files);
       let selectedfile = event.target.files[0];
       let filename = selectedfile.name;
+      const loader = this.loadingCtrl.create({
+        content: "Please wait...",
+        duration: 5000
+      });
+      loader.present();
+
       let storageRef = firebase.storage().ref("profilepic/" + filename);
 
       let metadata = { contentType: "image/jpeg", size: 0.75 };

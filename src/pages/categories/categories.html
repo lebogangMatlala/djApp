@@ -1,12 +1,18 @@
+
+
 <ion-content>
   <div class="navbar">
-    <ion-item no-lines class="navbarinput">
+      
+    <!-- <ion-item no-lines class="navbarinput">
       <ion-label color="light">
         <ion-icon name="search"></ion-icon>
-      </ion-label>
-      <ion-input type="text" class="navbar--input" placeholder="Search" name="email" id="input" ngModel
-        required></ion-input>
-    </ion-item>
+      </ion-label> 
+       
+      <ion-input type="text" (ionInput)="getItems($event)"  class="navbar--input" placeholder="Search" name="search" id="input" ngModel required></ion-input> 
+     
+    </ion-item> -->
+    <ion-searchbar (ionInput)="getItems($event)" class="navbar--input"  (ionCancel)="onCancel($event)"></ion-searchbar>
+   
   </div>
   <div class="iconblock">
     <div class="iconblock__iconcontainer" *ngFor="let category of categoriesArr">
@@ -16,18 +22,21 @@
       </div>
     </div>
   </div>
-
+  
   <ion-fab right bottom>
     <button ion-fab color="light"><ion-icon ios="ios-menu" md="md-menu"></ion-icon></button>
     <ion-fab-list side="left">
-      <button ion-fab>  <ion-icon ios="ios-contact" md="md-contact" (click)="page()"></ion-icon></button>
-      <button ion-fab>  <ion-icon ios="ios-log-out" md="md-log-out"></ion-icon></button>
+      <button ion-fab  (click)="page()">  <ion-icon ios="ios-contact" md="md-contact"></ion-icon></button>
+      <button ion-fab  (click)="signout()">  <ion-icon ios="ios-log-out" md="md-log-out"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
 
   <div class="list">
-    <ion-list no-lines>
-      <ion-item *ngFor="let x of  arrDj;let i = index" (click)="view(i)">
+
+     
+ <ion-list no-lines>
+  
+     <ion-item *ngFor="let x of  arrDj;let i = index" (click)="view(i)">
         <ion-thumbnail item-start>
           <img src='{{x.url}}'>
         </ion-thumbnail>
@@ -38,6 +47,7 @@
         <button ion-button clear item-end>View</button>
       </ion-item>
     
-    </ion-list>
+    </ion-list> 
+  
   </div>
 </ion-content>

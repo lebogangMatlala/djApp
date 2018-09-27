@@ -15,8 +15,10 @@ export class DatabaseProvider {
 
 
 
+
   constructor(public http: HttpClient) {
     console.log('Hello DatabaseProvider Provider');
+    
   }
 
 
@@ -120,6 +122,8 @@ retrieveProfile(){
         genre: 'Various',
         picture: '../../assets/imgs/various.jpg'
       }
-    ]
+    ];
   }
+
+
 }
